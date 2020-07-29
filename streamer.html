@@ -9,7 +9,7 @@
         const video = document.querySelector('video');
         
         // request access to webcam
-        navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);
+        navigator.mediaDevices.getUserMedia({video: {width: 1920, height: 1080}}).then((stream) => video.srcObject = stream);
         
         // returns a frame encoded in base64
         const getFrame = () => {
@@ -21,7 +21,7 @@
             return data;
         }
         const WS_URL = location.origin.replace(/^http/, 'ws');
-        const FPS = 3;
+        const FPS = 30;
         const ws = new WebSocket(WS_URL);
         ws.onopen = () => {
             console.log(`Connected to ${WS_URL}`);
